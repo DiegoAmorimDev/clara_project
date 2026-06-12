@@ -1,5 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 
+const BASE = import.meta.env.BASE_URL
+
 // ─── Data ────────────────────────────────────────────────────────────────────
 
 const QUIZ_QUESTIONS = [
@@ -26,10 +28,10 @@ const QUIZ_QUESTIONS = [
 ]
 
 const MEMORY_CARDS = [
-  { id: 1, img: '/ano_novo.jpeg',      caption: 'Ano Novo' },
-  { id: 2, img: '/na_praça.jpeg',      caption: 'Na Praça' },
-  { id: 3, img: '/restaurante.jpeg',   caption: 'Restaurante' },
-  { id: 4, img: '/filme_em_casa.jpeg', caption: 'Filme em Casa' },
+  { id: 1, img: `${BASE}ano_novo.jpeg`,      caption: 'Ano Novo' },
+  { id: 2, img: `${BASE}na_praça.jpeg`,      caption: 'Na Praça' },
+  { id: 3, img: `${BASE}restaurante.jpeg`,   caption: 'Restaurante' },
+  { id: 4, img: `${BASE}filme_em_casa.jpeg`, caption: 'Filme em Casa' },
 ]
 
 // ─── Frieren aesthetic constants ─────────────────────────────────────────────
@@ -733,7 +735,7 @@ function CounterScreen() {
         flexShrink: 0,
       }}>
         <img
-          src="/inicio.jpeg"
+          src={`${BASE}inicio.jpeg`}
           alt="nossa história"
           style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
           onError={(e) => {
@@ -927,7 +929,7 @@ export default function App() {
         .animate-slide-up { animation: slideUp 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
       `}</style>
 
-      <audio ref={audioRef} src="/frieren.mp3" loop preload="auto" />
+      <audio ref={audioRef} src={`${BASE}frieren.mp3`} loop preload="auto" />
 
       <div
         className="relative min-h-screen"
